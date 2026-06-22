@@ -15,7 +15,7 @@
 <header>
   <div class="wrap">
     <nav>
-      <a href="/" class="logo" aria-label="Trädgårdsfix i Skåne">
+      <a href="index.html" class="logo" aria-label="Trädgårdsfix i Skåne">
         <svg viewBox="0 0 100 100" aria-hidden="true">
           <circle cx="50" cy="50" r="48" fill="#3a5a40"/>
           <circle cx="50" cy="50" r="48" fill="none" stroke="#e9c46a" stroke-width="2.5"/>
@@ -29,6 +29,7 @@
         <a class="lk" href="tjanster.html">Tjänster</a>
         <a class="lk" href="varfor-oss.html">Varför oss</a>
         <a class="lk" href="sa-funkar-det.html">Så funkar det</a>
+        <a class="lk" href="avdrag.html">RUT &amp; ROT</a>
         <a class="lk active" href="kontakt.html">Kontakt</a>
         <a href="kontakt.html" class="btn">Begär offert</a>
       </div>
@@ -43,7 +44,7 @@
 <section class="banner">
   <svg class="banner-leaf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
   <div class="wrap">
-    <p class="crumbs"><a href="/">Hem</a> · Kontakt</p>
+    <p class="crumbs"><a href="index.html">Hem</a> · Kontakt</p>
     <span class="eyebrow">Kontakt</span>
     <h1>Begär en <em>kostnadsfri</em> offert</h1>
     <p>Berätta vad du behöver hjälp med så återkommer vi med ett fast pris – ofta redan samma dag.</p>
@@ -86,6 +87,9 @@
           <button type="button" data-val="Företag / förening">Företag / förening</button>
         </div>
         <input type="hidden" name="kundtyp" id="kundtypVal" value="Privatperson">
+        <input type="hidden" name="subject" value="Ny offertförfrågan från hemsidan">
+        <input type="hidden" name="from_name" value="Trädgårdsfix i Skåne – webb">
+        <input type="checkbox" name="botcheck" id="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field" id="f-namn">
           <label for="namn">Namn <span class="req">*</span></label>
           <input type="text" id="namn" name="namn" placeholder="För- och efternamn">
@@ -167,6 +171,7 @@
         <h4>Företag</h4>
         <ul>
           <li><a href="varfor-oss.html">Varför oss</a></li>
+          <li><a href="avdrag.html">RUT &amp; ROT-avdrag</a></li>
           <li><a href="sa-funkar-det.html">Så funkar det</a></li>
           <li><a href="kontakt.html">Begär offert</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
@@ -209,13 +214,29 @@
     kundtypVal.value=b.dataset.val;
   });
 
-  // form validation + send via Web3Forms
-  const WEB3FORMS_KEY='b4616909-146c-4e19-b6a7-46b7f95f7a49';
   const form=document.getElementById('quoteForm');
+
+  // ===== E-POST-KOPPLING (Web3Forms) =====
+  // 1. Skapa en gratis nyckel på https://web3forms.com med info@tradgardsfixskane.se
+  // 2. Klistra in nyckeln mellan citattecknen nedan (ersätt DIN-NYCKEL-HÄR).
+  const WEB3FORMS_KEY = 'b4616909-146c-4e19-b6a7-46b7f95f7a49';
+  // =======================================
+
   const required=[['namn','f-namn'],['epost','f-epost'],['tel','f-tel'],['ort','f-ort'],['tjanst','f-tjanst'],['meddelande','f-meddelande']];
   required.forEach(([id])=>{
     document.getElementById(id).addEventListener('input',function(){this.closest('.field').classList.remove('err');});
   });
+
+  function showThanks(){
+    const namn=(document.getElementById('namn')?.value.trim().split(' ')[0])||'';
+    document.getElementById('formBody').innerHTML=
+      '<div class="thanks">'+
+      '<div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>'+
+      '<h3>Tack'+(namn?', '+namn:'')+'!</h3>'+
+      '<p>Vi har tagit emot din offertförfrågan och hör av oss så snart vi kan – ofta redan samma dag.</p>'+
+      '</div>';
+  }
+
   form.addEventListener('submit',async function(e){
     e.preventDefault();
     let ok=true;
@@ -226,42 +247,43 @@
       if(emptyOrBad){f.classList.add('err');ok=false;}else{f.classList.remove('err');}
     });
     if(!ok){form.querySelector('.err input,.err select')?.focus();return;}
+
     const btn=form.querySelector('button[type="submit"]');
     const btnHtml=btn.innerHTML;
-    btn.disabled=true; btn.textContent='Skickar…';
-    const namn=(document.getElementById('namn').value.trim().split(' ')[0])||'';
-    const epost=document.getElementById('epost').value.trim();
-    const data={
-      access_key:WEB3FORMS_KEY,
-      subject:'Ny offertförfrågan – Trädgårdsfix i Skåne',
-      from_name:'Trädgårdsfix webbformulär',
-      replyto:epost,
-      'Kundtyp':document.getElementById('kundtypVal').value,
-      'Namn':document.getElementById('namn').value.trim(),
-      'E-post':epost,
-      'Telefon':document.getElementById('tel').value.trim(),
-      'Ort':document.getElementById('ort').value.trim(),
-      'Tjänst':document.getElementById('tjanst').value,
-      'Meddelande':document.getElementById('meddelande').value.trim()
-    };
+
+    // Om nyckeln inte är ifylld ännu: visa bara tack (sajten fungerar, men inget mail skickas)
+    if(!WEB3FORMS_KEY || WEB3FORMS_KEY==='DIN-NYCKEL-HÄR'){
+      showThanks();
+      return;
+    }
+
+    btn.disabled=true;
+    btn.style.opacity='.7';
+    btn.textContent='Skickar…';
     try{
+      const data=new FormData(form);
+      data.set('access_key', WEB3FORMS_KEY);
+      data.set('replyto', document.getElementById('epost').value.trim());
       const res=await fetch('https://api.web3forms.com/submit',{
         method:'POST',
-        headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify(data)
+        headers:{'Accept':'application/json'},
+        body:data
       });
-      const json=await res.json();
-      if(json.success){
-        document.getElementById('formBody').innerHTML=
-          '<div class="thanks">'+
-          '<div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>'+
-          '<h3>Tack'+(namn?', '+namn:'')+'!</h3>'+
-          '<p>Vi har tagit emot din offertförfrågan och hör av oss så snart vi kan – ofta redan samma dag.</p>'+
-          '</div>';
-      }else{throw new Error(json.message||'fel');}
+      const out=await res.json();
+      if(out.success){ showThanks(); }
+      else { throw new Error(out.message||'fel'); }
     }catch(err){
-      btn.disabled=false; btn.innerHTML=btnHtml;
-      alert('Hoppsan, något gick fel när formuläret skulle skickas. Försök igen, eller ring oss på 073-388 90 07.');
+      btn.disabled=false;
+      btn.style.opacity='';
+      btn.innerHTML=btnHtml;
+      let warn=form.querySelector('.send-error');
+      if(!warn){
+        warn=document.createElement('p');
+        warn.className='send-error';
+        warn.style.cssText='color:#b3492f;font-size:14px;font-weight:500;text-align:center;margin-top:14px';
+        btn.insertAdjacentElement('afterend',warn);
+      }
+      warn.textContent='Det gick inte att skicka just nu. Ring oss gärna på 073-388 90 07 eller mejla info@tradgardsfixskane.se.';
     }
   });
 </script>
