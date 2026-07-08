@@ -143,6 +143,28 @@
 
   /* ── CONTACT ── */
   #kontakt{background:var(--white)}
+  /* ══ SUMMER OFFER ══ */
+  .offer{background:var(--forest);position:relative;overflow:hidden}
+  .offer .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:64px;padding-bottom:64px}
+  .offer-badge{display:inline-flex;align-items:center;gap:9px;background:var(--sun);color:var(--forest);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:8px 16px;border-radius:50px;margin-bottom:20px}
+  .offer-badge svg{width:15px;height:15px}
+  .offer h2{color:var(--cream);font-size:clamp(28px,3.6vw,44px);letter-spacing:-.02em;line-height:1.1}
+  .offer h2 em{font-style:italic;color:var(--sun)}
+  .offer>.wrap>div>p{color:var(--sage);font-size:17.5px;margin-top:16px;max-width:560px}
+  .offer-price{background:rgba(246,244,238,.07);border:1px solid rgba(233,196,106,.35);border-radius:14px;padding:34px 36px;text-align:center}
+  .offer-price .from{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+  .offer-price .big{font-family:var(--display);font-size:clamp(44px,4.6vw,58px);font-weight:600;color:var(--sun);line-height:1.05;margin:8px 0 4px}
+  .offer-price .after{font-size:14.5px;color:var(--sage);font-weight:600}
+  .offer-price .btn{margin-top:22px;width:100%;justify-content:center}
+  .offer-points{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 26px;margin-top:24px}
+  .offer-points li{display:flex;gap:10px;align-items:flex-start;color:var(--cream);font-size:15px;font-weight:500}
+  .offer-points svg{flex:0 0 auto;width:18px;height:18px;color:var(--sun);margin-top:2px}
+  .offer .leaf{position:absolute;right:-70px;top:-90px;width:300px;height:300px;opacity:.07;color:var(--sage)}
+  /* mini offer strip on contact */
+  .offer-mini{display:flex;align-items:center;gap:16px;background:rgba(233,196,106,.16);border:1px solid rgba(202,164,74,.4);border-radius:10px;padding:16px 20px;margin-bottom:30px}
+  .offer-mini svg{flex:0 0 auto;width:22px;height:22px;color:var(--sun-deep)}
+  .offer-mini strong{color:var(--forest);font-size:15px}
+  .offer-mini span{display:block;font-size:13.5px;color:var(--muted)}
   .contact-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:64px;align-items:start}
   .contact-info h2{font-size:clamp(30px,3.6vw,46px);margin:16px 0 18px}
   .contact-info>p{font-size:18px;color:var(--muted);margin-bottom:36px;max-width:420px}
@@ -197,6 +219,8 @@
 
   @media(max-width:960px){
     .hero-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
+    .offer .wrap{grid-template-columns:1fr;gap:34px}
+    .offer-points{grid-template-columns:1fr}
     .hero-visual{order:-1}
     .hero-visual image-slot{height:380px}
     .hero-visual .hero-photo{height:380px}
@@ -292,6 +316,32 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SUMMER OFFER ══════════ -->
+<section class="offer" id="erbjudande">
+  <svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+  <div class="wrap">
+    <div class="fade">
+      <span class="offer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg> Sommarerbjudande</span>
+      <h2>Altantvätt &amp; marktvätt – <em>till paketpris</em></h2>
+      <p>Boka altantvätt och marktvätt samtidigt och få ett förmånligt paketpris. Perfekt för dig som vill få altanen, uppfarten eller stenytorna rena och sommarfina inför semester eller visning.</p>
+      <ul class="offer-points">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Paketpris för altan + uppfart eller stenläggning</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Kostnadsfri offert, ofta samma dag</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> ROT-avdrag direkt på fakturan</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Gäller i hela Skåne under sommarsäsongen</li>
+      </ul>
+    </div>
+    <div class="offer-price fade">
+      <div class="from">Paketpris från</div>
+      <div class="big">4 990 kr</div>
+      <div class="after">efter ROT-avdrag</div>
+      <a href="#kontakt" class="btn btn-sun">Få sommarpris idag
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -456,6 +506,10 @@
 
     <form id="quoteForm" novalidate>
       <div id="formBody">
+        <div class="offer-mini">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <div><strong>Sommarerbjudande: altantvätt + marktvätt från 4 990 kr efter ROT.</strong><span>Skriv "sommarpaket" i beskrivningen så räknar vi på det.</span></div>
+        </div>
         <h3>Få ditt pris</h3>
         <p class="fsub">Fyll i nedan så hör vi av oss – oftast samma dag.</p>
         <div class="seg" id="kundtyp">
