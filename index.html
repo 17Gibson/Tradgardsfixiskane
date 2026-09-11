@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trädgårdsfix i Skåne – Trädgårdsskötsel, markarbete & rengöring</title>
-<meta name="description" content="Trädgårdsfix i Skåne erbjuder högtryckstvätt, häckklippning, stubbfräsning, markarbete och säsongsskötsel i hela Skåne. Privat & företag. Både RUT- & ROT-avdrag. Begär kostnadsfri offert!">
+<meta name="description" content="Höststädning och lövkrattning i hela Skåne – vi gör trädgården vinterklar. Häckklippning, nedklippning av perenner, bortforsling, markarbete och snöröjning. Privat & företag. Begär kostnadsfri höstoffert!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -81,8 +81,9 @@
   .rut-card{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(246,244,238,.96);backdrop-filter:blur(6px);border-radius:6px;padding:18px 22px;display:flex;align-items:center;gap:16px;z-index:3}
   .rut-card .pct{flex:0 0 auto;font-family:var(--display);font-size:34px;font-weight:600;color:var(--moss);line-height:1}
   .rut-card .pct small{font-size:18px}
-  .rut-card .tx strong{display:block;font-family:var(--display);font-size:17px;color:var(--forest);font-weight:600}
-  .rut-card .tx span{font-size:13.5px;color:var(--muted)}
+  .rut-card .pct svg{display:block;width:34px;height:34px;color:var(--moss)}
+  .rut-card .tx strong{display:block;font-family:var(--display);font-size:15.5px;color:var(--forest);font-weight:600;line-height:1.25}
+  .rut-card .tx span{font-size:12.5px;color:var(--muted);line-height:1.45;display:block;margin-top:3px}
 
   /* ══ TOWN STRIP ══ */
   .towns{border-top:1px solid rgba(31,53,38,.1);border-bottom:1px solid rgba(31,53,38,.1);background:rgba(163,177,138,.1)}
@@ -118,6 +119,19 @@
   .svc-card li:last-child{border-bottom:none}
   .svc-card li::before{content:"";position:absolute;left:2px;top:18px;width:13px;height:2px;background:var(--sage)}
   .svc-card li::after{content:"";position:absolute;left:7px;top:13px;width:2px;height:12px;background:var(--sage)}
+  .svc-flag{display:inline-flex;align-items:center;gap:8px;background:var(--sun);color:var(--forest);font-weight:700;font-size:12.5px;letter-spacing:.04em;padding:7px 14px;border-radius:50px;margin:-8px 0 18px}
+
+  /* ── AUTUMN JOBS ── */
+  #hostjobb{background:var(--white)}
+  .hj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .hj-card{background:var(--cream);border:1px solid rgba(31,53,38,.1);border-radius:12px;padding:28px 26px;transition:transform .22s,box-shadow .22s}
+  .hj-card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -28px rgba(31,53,38,.4)}
+  .hj-card svg{width:30px;height:30px;color:var(--moss);margin-bottom:16px}
+  .hj-card p{font-size:16px;color:var(--ink);line-height:1.5;text-wrap:pretty}
+  .hj-link{margin-top:34px;text-align:center}
+  .hj-link a{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16.5px;color:var(--moss);border-bottom:2px solid rgba(58,90,64,.3);padding-bottom:4px;transition:color .2s,border-color .2s}
+  .hj-link a:hover{color:var(--forest);border-color:var(--sun)}
+  .hj-link svg{width:17px;height:17px}
 
   /* ── WHY ── */
   #varfor{background:var(--forest);color:var(--cream);position:relative;overflow:hidden}
@@ -192,6 +206,9 @@
   form .btn{width:100%;justify-content:center;margin-top:8px;font-size:16px;padding:17px}
   .form-note{font-size:13px;color:var(--muted);text-align:center;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:7px}
   .form-note svg{width:15px;height:15px;color:var(--moss)}
+  .filefield input[type="file"]{padding:11px 14px;font-size:14.5px;cursor:pointer;background:var(--white)}
+  .filefield input[type="file"]::file-selector-button{font-family:var(--body);font-weight:600;font-size:13.5px;border:0;background:var(--moss);color:var(--cream);padding:8px 14px;border-radius:5px;margin-right:12px;cursor:pointer}
+  .filefield .hint{font-size:13px;color:var(--muted);margin-top:7px;line-height:1.5}
   .thanks{text-align:center;padding:30px 10px}
   .thanks .tick{width:64px;height:64px;border-radius:50%;background:var(--moss);display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
   .thanks .tick svg{width:32px;height:32px;color:var(--cream)}
@@ -225,6 +242,7 @@
     .hero-visual image-slot{height:380px}
     .hero-visual .hero-photo{height:380px}
     .why-grid{grid-template-columns:repeat(2,1fr);gap:36px 28px}
+    .hj-grid{grid-template-columns:repeat(2,1fr)}
     .foot-grid{grid-template-columns:1fr 1fr;gap:34px}
   }
   @media(max-width:1080px){
@@ -240,29 +258,13 @@
     .svc-card:nth-child(n+1){border-bottom:1px solid rgba(31,53,38,.12)}
     .svc-card:last-child{border-bottom:none}
     .why-grid,.steps{grid-template-columns:1fr;gap:30px}
+    .hj-grid{grid-template-columns:1fr;gap:16px}
     .foot-grid{grid-template-columns:1fr;gap:30px}
     .foot-bottom{flex-direction:column;align-items:flex-start;gap:16px}
     .steps::before{display:none}
     .row2{grid-template-columns:1fr}
   }
 </style>
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1975871153801796');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -299,10 +301,10 @@ src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
   <div class="wrap hero-grid">
     <div class="hero-copy fade in">
       <span class="eyebrow">Hela Skåne · Privat &amp; företag</span>
-      <h1>Vi sköter din <em>trädgård</em> &amp; uppfart</h1>
-      <p class="lead">Från högtryckstvätt och häckklippning till stubbfräsning och markarbete – vi tar hand om hela utemiljön, året om. Prydligt, pålitligt och prisvärt med både RUT- och ROT-avdrag.</p>
+      <h1>Gör trädgården <em>vinterklar</em></h1>
+      <p class="lead">Lövkrattning, häckklippning, nedklippning av perenner och bortforsling av trädgårdsavfall – vi tar hand om höststädningen så att tomten är ren och redo inför vintern.</p>
       <div class="hero-cta">
-        <a href="#kontakt" class="btn">Begär kostnadsfri offert
+        <a href="#kontakt" class="btn">Få höstoffert
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="#tjanster" class="btn btn-out">Se våra tjänster</a>
@@ -324,12 +326,12 @@ src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
         </svg>
       </div>
       <div class="frame">
-        <img class="hero-photo" src="assets/hero.webp" alt="Välskött trädgård i Skåne">
+        <img class="hero-photo" style="object-position:68% center" src="hero-host.png" alt="Trädgårdsarbetare krattar löv vid en altan en frostig höstmorgon">
         <div class="rut-card">
-          <div class="pct">50<small>%</small></div>
+          <div class="pct"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="34" height="34"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
           <div class="tx">
-            <strong>RUT 50% · ROT 30%</strong>
-            <span>Avdrag direkt på fakturan – vi sköter Skatteverket</span>
+            <strong>Höststädning från 2 490 kr efter RUT-avdrag</strong>
+            <span>Lövkrattning, rabattstädning och nedklippning av perenner – till paketpris.</span>
           </div>
         </div>
       </div>
@@ -337,26 +339,26 @@ src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- ══════════ SUMMER OFFER ══════════ -->
+<!-- ══════════ AUTUMN OFFER ══════════ -->
 <section class="offer" id="erbjudande">
   <svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
   <div class="wrap">
     <div class="fade">
-      <span class="offer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg> Sommarerbjudande</span>
-      <h2>Altantvätt &amp; marktvätt – <em>till paketpris</em></h2>
-      <p>Boka altantvätt och marktvätt samtidigt och få ett förmånligt paketpris. Perfekt för dig som vill få altanen, uppfarten eller stenytorna rena och sommarfina inför semester eller visning.</p>
+      <span class="offer-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg> Höstkampanj</span>
+      <h2>Höststädning – <em>till paketpris</em></h2>
+      <p>Få tomten ren och vinterklar innan regnet och mörkret sätter in. Vi krattar löven, städar rabatterna och klipper ned perennerna – så slipper du börja våren med förra årets arbete.</p>
       <ul class="offer-points">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Paketpris för altan + uppfart eller stenläggning</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Paketpris för lövkrattning + rabattstädning + nedklippning av perenner</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Bortforsling av trädgårdsavfall som tillval</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Kostnadsfri offert, ofta samma dag</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> ROT-avdrag direkt på fakturan</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Gäller i hela Skåne under sommarsäsongen</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> RUT-avdrag direkt på fakturan</li>
       </ul>
     </div>
     <div class="offer-price fade">
       <div class="from">Paketpris från</div>
-      <div class="big">4 990 kr</div>
-      <div class="after">efter ROT-avdrag</div>
-      <a href="#kontakt" class="btn btn-sun">Få sommarpris idag
+      <div class="big">2 490 kr</div>
+      <div class="after">efter RUT-avdrag</div>
+      <a href="#kontakt" class="btn btn-sun">Få höstpris idag
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -395,27 +397,31 @@ src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
 
       <div class="svc-card c1 fade">
         <div class="svc-top">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-4"/><path d="M6 7.5c.5-1 1.5-1 2 0s1.5 1 2 0"/></svg></div>
-          <div><h3>Rengöring &amp; tvätt</h3><div class="cat">Friskt &amp; rent</div></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88"/><path d="M14.47 14.48 20 20"/><path d="M8.12 8.12 12 12"/></svg></div>
+          <div><h3>Klippning &amp; skötsel</h3><div class="cat">Välansad &amp; grön</div></div>
         </div>
         <ul>
-          <li>Högtryckstvätt av uppfart – betong, asfalt &amp; grus</li>
-          <li>Tvätt av altan, trädäck &amp; stenplattor</li>
-          <li>Rengöring av staket, murar &amp; fasad</li>
-          <li>Mossbehandling &amp; algborttagning</li>
+          <li>Lövkrattning &amp; höststädning</li>
+          <li>Nedklippning av perenner</li>
+          <li>Häckklippning – alla sorter &amp; höjder</li>
+          <li>Busk- &amp; trädbeskärning, uppstamning</li>
+          <li>Ogräsrensning i rabatter &amp; gångar</li>
+          <li>Gräsklippning &amp; kantskärning</li>
+          <li>Bortforsling av trädgårdsavfall</li>
         </ul>
       </div>
 
       <div class="svc-card c2 fade">
         <div class="svc-top">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88"/><path d="M14.47 14.48 20 20"/><path d="M8.12 8.12 12 12"/></svg></div>
-          <div><h3>Klippning &amp; skötsel</h3><div class="cat">Välansad &amp; grön</div></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19M4.5 9.5 12 12l7.5-2.5M4.5 14.5 12 12l7.5 2.5"/></svg></div>
+          <div><h3>Vinterarbete</h3><div class="cat">Snö &amp; halka</div></div>
         </div>
+        <span class="svc-flag">Boka snöröjningsavtal nu</span>
         <ul>
-          <li>Häckklippning – alla sorter &amp; höjder</li>
-          <li>Gräsklippning &amp; kantskärning</li>
-          <li>Busk- &amp; trädbeskärning, uppstamning</li>
-          <li>Ogräsrensning i rabatter &amp; gångar</li>
+          <li>Snöröjning av uppfart &amp; gångar</li>
+          <li>Halkbekämpning, sandning &amp; saltning</li>
+          <li>Snöröjning av p-platser &amp; innergårdar</li>
+          <li>Bortforsling av snö vid behov</li>
         </ul>
       </div>
 
@@ -434,18 +440,50 @@ src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
 
       <div class="svc-card c4 fade">
         <div class="svc-top">
-          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19M4.5 9.5 12 12l7.5-2.5M4.5 14.5 12 12l7.5 2.5"/></svg></div>
-          <div><h3>Vinterarbete</h3><div class="cat">Snö &amp; halka</div></div>
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-4"/><path d="M6 7.5c.5-1 1.5-1 2 0s1.5 1 2 0"/></svg></div>
+          <div><h3>Rengöring &amp; tvätt</h3><div class="cat">Friskt &amp; rent</div></div>
         </div>
         <ul>
-          <li>Snöröjning av uppfart &amp; gångar</li>
-          <li>Halkbekämpning, sandning &amp; saltning</li>
-          <li>Snöröjning av p-platser &amp; innergårdar</li>
-          <li>Bortforsling av snö vid behov</li>
+          <li>Högtryckstvätt av uppfart – betong, asfalt &amp; grus</li>
+          <li>Tvätt av altan, trädäck &amp; stenplattor</li>
+          <li>Rengöring av staket, murar &amp; fasad</li>
+          <li>Mossbehandling &amp; algborttagning</li>
         </ul>
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ══════════ AUTUMN JOBS ══════════ -->
+<section class="sec tight" id="hostjobb">
+  <div class="wrap">
+    <div class="sec-head fade">
+      <span class="eyebrow">Höstens vanligaste jobb</span>
+      <h2>Känner du igen dig?</h2>
+      <p>Det här är vad de flesta hör av sig om just nu – vi löser det på ett besök.</p>
+    </div>
+    <div class="hj-grid">
+      <div class="hj-card fade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+        <p>Löv som täpper igen brunnar, gångar och uteplatser</p>
+      </div>
+      <div class="hj-card fade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88"/><path d="M14.47 14.48 20 20"/></svg>
+        <p>Häckar som blivit breda och ojämna efter sommaren</p>
+      </div>
+      <div class="hj-card fade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M12 12c0-3 2-6 6-6 0 4-2.5 6-6 6Z"/><path d="M12 16c0-3-2-6-6-6 0 4 2.5 6 6 6Z"/></svg>
+        <p>Övervuxna rabatter och vissna perenner</p>
+      </div>
+      <div class="hj-card fade">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18l-1.5 13a2 2 0 0 1-2 1.8H6.5a2 2 0 0 1-2-1.8Z"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg>
+        <p>Trädgårdsavfall som blir liggande utan släp</p>
+      </div>
+    </div>
+    <p class="hj-link fade"><a href="#kontakt">Beskriv ditt jobb så får du en kostnadsfri höstoffert
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a></p>
   </div>
 </section>
 
@@ -524,8 +562,8 @@ src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
     <form id="quoteForm" novalidate>
       <div id="formBody">
         <div class="offer-mini">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          <div><strong>Sommarerbjudande: altantvätt + marktvätt från 4 990 kr efter ROT.</strong><span>Skriv "sommarpaket" i beskrivningen så räknar vi på det.</span></div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          <div><strong>Höstkampanj: höststädning från 2 490 kr efter RUT-avdrag.</strong><span>Skriv "höstpaket" i beskrivningen så räknar vi på det.</span></div>
         </div>
         <h3>Få ditt pris</h3>
         <p class="fsub">Fyll i nedan så hör vi av oss – oftast samma dag.</p>
@@ -563,19 +601,25 @@ src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
           <label for="tjanst">Vilken tjänst?</label>
           <select id="tjanst" name="tjanst">
             <option value="">Välj tjänst…</option>
-            <option>Rengöring &amp; tvätt</option>
+            <option>Höststädning</option>
             <option>Klippning &amp; skötsel</option>
-            <option>Mark &amp; trädarbete</option>
             <option>Vinterarbete</option>
+            <option>Mark &amp; trädarbete</option>
+            <option>Rengöring &amp; tvätt</option>
             <option>Flera / vet ej</option>
           </select>
           <div class="errmsg">Välj en tjänst.</div>
         </div>
         <div class="field" id="f-meddelande">
           <label for="meddelande">Beskriv jobbet</label>
-          <textarea id="meddelande" name="meddelande" placeholder="T.ex. häck på 20 meter som behöver klippas, stubbe som ska fräsas…"></textarea>
+          <textarea id="meddelande" name="meddelande" placeholder="T.ex. lövkrattning av villatomt ca 400 m², häck på 20 meter som behöver klippas…"></textarea>
         </div>
-        <button type="submit" class="btn">Skicka offertförfrågan
+        <div class="field filefield" id="f-bilder">
+          <label for="bilder">Bilder på trädgården</label>
+          <input type="file" id="bilder" name="bilder" accept="image/*" multiple>
+          <p class="hint">Skicka gärna 3–5 bilder på trädgården så kan vi ge ett tydligare pris.</p>
+        </div>
+        <button type="submit" class="btn">Skicka höstoffert
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
         <p class="form-note">
@@ -719,6 +763,10 @@ src="https://www.facebook.com/tr?id=1975871153801796&ev=PageView&noscript=1"
       const data=new FormData(form);
       data.set('access_key', WEB3FORMS_KEY);
       data.set('replyto', document.getElementById('epost').value.trim());
+      const bilder=document.getElementById('bilder');
+      if(bilder && bilder.files.length){
+        data.set('bifogade_bilder', bilder.files.length+' st: '+[...bilder.files].map(f=>f.name).join(', '));
+      }
       const res=await fetch('https://api.web3forms.com/submit',{
         method:'POST',
         headers:{'Accept':'application/json'},
